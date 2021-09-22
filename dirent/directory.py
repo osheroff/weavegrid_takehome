@@ -4,6 +4,10 @@ import os
 
 class Directory(Base):
     def json(self, include_contents, recurse = False):
+        """
+        transform the directory into a JSON-able map.
+        If include_contents or recurse is true, add the "entries" key enumerating the directory's children
+        """
         j = super().json(include_contents, recurse)
         j['type'] = 'directory'
 

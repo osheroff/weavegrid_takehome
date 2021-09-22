@@ -84,6 +84,7 @@ key reference:
 - as extra credit I chose to do symlink handling and recursion
 
 - in the interest of time I stuck with higher level functional/integration style testing, rather than module-level unit tests.
+  Test coverage should nevertheless be very high.
 
 ## notes
 - the basics of the app were finished in about 2 hours.  I'd say 90 minutes of that was coding and
@@ -91,3 +92,4 @@ key reference:
 - adding symlink support took another 45 minutes or so.  Lots of goofy details in there, tricky to get right.
 - another 1.5 hours of documentation, final testing, dockerization, adding in recursion.
 - took a break at the 4 hour mark.
+- returned for another 30 minutes or so of code cleanup/documentation

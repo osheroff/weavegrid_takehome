@@ -6,6 +6,10 @@ from pwd import getpwuid
 from grp import getgrgid
 
 class Base:
+    """
+    base class representing a directory entry and how to transform it into a JSON-able dictionary.
+    """
+
     def __init__(self, base_path, relative_path, stat_result):
         self.base_path = base_path
         self.relative_path = relative_path
@@ -13,6 +17,10 @@ class Base:
         self.full_path = os.path.join(base_path, relative_path)
 
     def from_path(base_path, relative_path):
+        """
+        given a base (webserver root) path and a relative path, return a concrete instance of [Directory, File, Link].
+        Returns None if the path doesn't exist or we can't handle the file type.
+        """
         # late import to avoid circular imports.  is there a more python-esque way to structure this?
 
         from dirent.directory import Directory
@@ -49,6 +57,9 @@ class Base:
         return getgrgid(gid).gr_name
 
     def json(self, include_contents, recurse = False):
+        """
+        transform the directory entry into a JSON-able map.
+        """
         return {
                 "path": "/" + self.relative_path,
                 "permissions": self.permissions(),
