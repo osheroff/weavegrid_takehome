@@ -6,8 +6,8 @@ import pdb
 
 
 class Link(Base):
-    def json(self, include_contents):
-        j = super().json(include_contents)
+    def json(self, include_contents, recurse):
+        j = super().json(include_contents, recurse)
         j['type'] = 'link'
 
         # resolve link

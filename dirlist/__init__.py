@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from dirent.base import Base
 import os
 
@@ -8,6 +8,10 @@ def create_app(root, test_config = None):
     if test_config is not None:
         app.config.update(test_config)
 
+    app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+    app.config['JSON_SORT_KEYS'] = False
+
+
     def get_path(path):
         parts = path.split("/")
         relative_path = os.path.join(*parts)
@@ -16,8 +20,9 @@ def create_app(root, test_config = None):
         if dirent is None:
             return { "error": "not found" }, 404
 
+        recurse = 'recurse' in request.args
         try:
-            json = dirent.json(include_contents=True)
+            json = dirent.json(include_contents=True, recurse = recurse)
         except PermissionError:
             return { "error": "permission denied"}, 403
         return json

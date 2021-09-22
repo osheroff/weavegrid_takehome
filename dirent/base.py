@@ -47,7 +47,7 @@ class Base:
         gid = self.stat_result.st_gid
         return getgrgid(gid).gr_name
 
-    def json(self, include_contents):
+    def json(self, include_contents, recurse = False):
 
         h = { "path": "/" + self.relative_path,
               "permissions": self.permissions(),
