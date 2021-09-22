@@ -32,6 +32,7 @@ def test_get_file(client):
     assert json['path'] == '/plainfile'
     assert json['type'] == 'file'
     assert json['contents'] == 'hi imma file.\n'
+    assert json['size'] == 14
 
 def test_list_subdir(client):
     r = client.get('/subdir')
