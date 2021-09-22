@@ -93,7 +93,7 @@ key reference:
   of hashes felt more orthogonal to the API strucutre, but I'm not 100% sure of this decision.
 
 - Ideally the app would allow a commandline flag to allow following of symlinks outside the root folder,
-  but I figured that this would add more complexity/increase code review time on your end un-necessarily.
+  but I figured that this would add more complexity/increase code review time unnecessarily.
 
 - as extra credit I chose to do symlink handling and recursion
 
