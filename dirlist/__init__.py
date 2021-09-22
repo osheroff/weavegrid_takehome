@@ -13,6 +13,7 @@ def create_app(root, test_config = None):
 
 
     def get_path(path):
+        # ostensibly support non-unix
         parts = path.split("/")
         relative_path = os.path.join(*parts)
 
@@ -27,6 +28,7 @@ def create_app(root, test_config = None):
             return { "error": "permission denied"}, 403
         return json
 
+    # flask insists that each route start with '/', so we oblige.
     @app.route("/<path:path>")
     def get_subpath(path):
         return get_path("/" + path)
