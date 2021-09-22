@@ -49,13 +49,12 @@ class Base:
         return getgrgid(gid).gr_name
 
     def json(self, include_contents, recurse = False):
-
-        h = { "path": "/" + self.relative_path,
+        return {
+                "path": "/" + self.relative_path,
                 "permissions": self.permissions(),
                 "user": self.user(),
                 "group": self.group()
-            }
-        return h
+                }
 
 
 
