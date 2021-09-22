@@ -61,7 +61,8 @@ key reference:
 - *user*: file owner
 - *group*: file group
 - *entries*: if type is "directory", list of entries underneath
-- *contents*: when type is "file", text file contentx
+- *contents*: when type is "file", text file contents
+- *size*: when type is "file", size of file
 - *link*: when type is "link", path to file relative to server root
 
 
