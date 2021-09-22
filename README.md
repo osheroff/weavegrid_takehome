@@ -6,27 +6,27 @@
 GET /
 ```
 {
-	 type: "directory",
-	 path: "/",
-   permissions: 755,
-   user: "ben",
-   group: "staff",
-   entries: [
+	type: "directory",
+	path: "/",
+	permissions: 755,
+	user: "ben",
+	group: "staff",
+	entries: [
 		{ path: "/src", type: "directory", permissions: 755, user: "ben", "group: "wheel" },
 		{ path: "/txtfile", type: "file", permissions: 600, user: "ben", "group: "staff" }
-	 ]
+	]
 }
 ```
 
 GET /txtfile
 ```
 {
-	 type: "directory",
-	 path: "/txtfile",
-   permissions: 600,
-   user: "ben",
-   group: "staff",
-	 contents: "Hi everybody."
+	type: "directory",
+	path: "/txtfile",
+	permissions: 600,
+	user: "ben",
+	group: "staff",
+	contents: "Hi everybody."
 }
 ```
 
