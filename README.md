@@ -49,7 +49,20 @@ GET /txtfile
 	permissions: 600,
 	user: "ben",
 	group: "staff",
-	jontents: "Hi everybody."
+	contents: "Hi everybody.",
+	size: 123
+}
+```
+
+GET /symlinky
+```
+{
+	type: "link",
+	path: "/symlink",
+	permissions: 600,
+	user: "ben",
+	group: "staff",
+	link: "/link_destination"
 }
 ```
 
