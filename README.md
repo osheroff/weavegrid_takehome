@@ -107,3 +107,4 @@ key reference:
 - another 1.5 hours of documentation, final testing, dockerization, adding in recursion.
 - took a break at the 4 hour mark.
 - returned for another 30 minutes or so of code cleanup/documentation
+- tested on EC2, discovered I hadn't built a multi-arch docker image (I'm on m1), another 15-20 minutes of getting that right.
