@@ -1,16 +1,27 @@
 # WeaveGrid take-home test
 
-## TLDR
+## quickstart
 
-docker run -p 5000 osheroff:weavegrid_takehome
+```
+docker run -p 5000:5000 osheroff/weavegrid_takehome
+open http://localhost:5000
+open http://localhost:5000/hi_weavegrid
+open http://localhost:5000/subdir
+```
 
 ### or
 
-docker run -p 5000 -v $HOME:/root osheroff:weavegrid_takehome
+```
+docker run -p 5000:5000 -v $HOME:/webroot osheroff/weavegrid_takehome
+open http://localhost:5000
+```
 
 ### or
 
-docker run -p 5000 -v $HOME:/other osheroff:weavegrid_takehome app.py /other
+```
+docker run -p 5000:5000 -v $HOME:/other osheroff/weavegrid_takehome ./app.py /other
+open http://localhost:5000
+```
 
 ## api reference
 
@@ -75,5 +86,5 @@ key reference:
 - the basics of the app were finished in about 2 hours.  I'd say 90 minutes of that was coding and
   another 30 was yak shaving / framework wrangling.
 - adding symlink support took another 45 or so.  Lots of goofy details in there, tricky to get right.
-- another 45 minutes of documentation, final testing, dockerization.
+- another 90 minutes of documentation, final testing, dockerization.
 
