@@ -6,5 +6,5 @@ import sys
 if len(sys.argv) < 2:
     sys.exit("usage: app.py [ROOT_PATH]")
 app = create_app(sys.argv[1])
-app.run()
+app.run(host='0.0.0.0')
 
