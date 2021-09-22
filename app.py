@@ -1,3 +1,6 @@
 from dirlist import create_app
+import sys
+app = create_app(sys.argv[1])
 
-app = create_app("/Users/ben")
+if __name__ == "__main__":
+    app.run()
