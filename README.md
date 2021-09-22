@@ -1,5 +1,16 @@
 # WeaveGrid take-home test
 
+## TLDR
+
+docker run -p 5000 osheroff:weavegrid_takehome
+
+### or
+
+docker run -p 5000 -v $HOME:/root osheroff:weavegrid_takehome
+
+### or
+
+docker run -p 5000 -v $HOME:/other osheroff:weavegrid_takehome app.py /other
 
 ## api reference
 
@@ -58,7 +69,11 @@ key reference:
 - Ideally the app would allow a commandline flag to allow following of symlinks outside the root folder,
   but I figured that this would add more complexity/increase code review time on your end un-necessarily.
 
+- as extra credit I chose to do symlink handling and recursion
+
 ## notes
 - the basics of the app were finished in about 2 hours.  I'd say 90 minutes of that was coding and
   another 30 was yak shaving / framework wrangling.
 - adding symlink support took another 45 or so.  Lots of goofy details in there, tricky to get right.
+- another 45 minutes of documentation, final testing, dockerization.
+
