@@ -82,6 +82,8 @@ key reference:
 
 - as extra credit I chose to do symlink handling and recursion
 
+- in the interest of time I stuck with higher level functional/integration style testing, rather than module-level unit tests.
+
 ## notes
 - the basics of the app were finished in about 2 hours.  I'd say 90 minutes of that was coding and
   another 30 was yak shaving / framework wrangling.

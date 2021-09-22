@@ -3,11 +3,12 @@ import os
 
 from dirlist import create_app
 
+def index_path():
+    return os.path.join(os.path.dirname(__file__), "test_index")
+
 @pytest.fixture
 def client():
-    index_path = os.path.join(os.path.dirname(__file__), "test_index")
-
-    app = create_app(index_path, {'TESTING': True})
+    app = create_app(index_path(), {'TESTING': True})
     with app.test_client() as client:
         yield client
 
@@ -57,9 +58,18 @@ def test_not_exists(client):
     assert r.get_json() == { "error": "not found" }
 
 def test_permission_denied(client):
-    r = client.get("/nopermissions")
-    assert r.status_code == 403
-    assert r.get_json() == { "error": "permission denied" }
+    path = os.path.join(index_path(), "nopermissions")
+
+    try:
+        with open(path, 'w') as file:
+            pass
+
+        os.chmod(path, 0)
+        r = client.get("/nopermissions")
+        assert r.status_code == 403
+        assert r.get_json() == { "error": "permission denied" }
+    finally:
+        os.unlink(path)
 
 def test_follow_breakout_link(client):
     r = client.get("/passwdlink")
