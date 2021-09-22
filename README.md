@@ -88,6 +88,6 @@ key reference:
 ## notes
 - the basics of the app were finished in about 2 hours.  I'd say 90 minutes of that was coding and
   another 30 was yak shaving / framework wrangling.
-- adding symlink support took another 45 or so.  Lots of goofy details in there, tricky to get right.
-- another 90 minutes of documentation, final testing, dockerization.
-
+- adding symlink support took another 45 minutes or so.  Lots of goofy details in there, tricky to get right.
+- another 1.5 hours of documentation, final testing, dockerization, adding in recursion.
+- took a break at the 4 hour mark.
