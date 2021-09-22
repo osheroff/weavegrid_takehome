@@ -16,10 +16,12 @@ class Directory(Base):
             j['entries'] = []
             for entry in entries:
                 de = Base.from_path(self.base_path, os.path.join(self.relative_path, entry))
-                if de is not None:
-                    json = de.json(include_contents = False, recurse = recurse)
-                    if json is not None:
-                        j['entries'].append(json)
+                if de is None: # file types we don't handle can return None here
+                    continue
+
+                json = de.json(include_contents = False, recurse = recurse)
+                if json is not None: # some symlinks can choose to remove themselves
+                    j['entries'].append(json)
         return j
 
 

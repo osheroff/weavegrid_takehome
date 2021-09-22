@@ -13,7 +13,8 @@ class Base:
         self.full_path = os.path.join(base_path, relative_path)
 
     def from_path(base_path, relative_path):
-        # late import to avoid circular imports
+        # late import to avoid circular imports.  is there a more python-esque way to structure this?
+
         from dirent.directory import Directory
         from dirent.file import File
         from dirent.link import Link
@@ -50,9 +51,10 @@ class Base:
     def json(self, include_contents, recurse = False):
 
         h = { "path": "/" + self.relative_path,
-              "permissions": self.permissions(),
-              "user": self.user(),
-              "group": self.group() }
+                "permissions": self.permissions(),
+                "user": self.user(),
+                "group": self.group()
+            }
         return h
 
 
