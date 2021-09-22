@@ -4,23 +4,24 @@
 
 ```
 docker run -p 5000:5000 osheroff/weavegrid_takehome
-open http://localhost:5000
-open http://localhost:5000/hi_weavegrid
-open http://localhost:5000/subdir
+curl http://localhost:5000
+curl http://localhost:5000/hi_weavegrid
+curl http://localhost:5000/subdir
+curl http://localhost:5000?recurse=1
 ```
 
 ### or
 
 ```
 docker run -p 5000:5000 -v $HOME:/webroot osheroff/weavegrid_takehome
-open http://localhost:5000
+curl http://localhost:5000
 ```
 
 ### or
 
 ```
 docker run -p 5000:5000 -v $HOME:/other osheroff/weavegrid_takehome ./app.py /other
-open http://localhost:5000
+curl http://localhost:5000
 ```
 
 ## api reference
