@@ -44,7 +44,7 @@ GET /
 GET /txtfile
 ```
 {
-	type: "directory",
+	type: "file",
 	path: "/txtfile",
 	permissions: 600,
 	user: "ben",
