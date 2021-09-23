@@ -53,6 +53,19 @@ def test_list_subdir(client):
     assert '/subdir/relative_link' in entry_map
     assert entry_map['/subdir/relative_link']['link'] == '/plainfile'
 
+def test_recursive(client):
+    r = client.get('/?recurse=1')
+    json = r.get_json()
+
+    assert json
+    assert json['entries']
+
+    subdir = next(e for e in json['entries'] if e['path'] == '/subdir')
+    assert subdir
+    assert subdir['entries']
+    assert len(subdir['entries']) > 0
+
+
 def test_not_exists(client):
     r = client.get("/notthere")
     assert r.status_code == 404
